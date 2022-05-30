@@ -204,7 +204,7 @@ void HardwareA1ROS::joy_callback(const sensor_msgs::Joy::ConstPtr &joy_msg) {
     joy_cmd_velz = joy_msg->axes[1] * JOY_CMD_BODY_HEIGHT_VEL;
 
     //A
-    if (joy_msg->buttons[0] == 1) {
+    if (joy_msg->buttons[2] == 1) {
         joy_cmd_ctrl_state_change_request = true;
     }
 
@@ -215,9 +215,9 @@ void HardwareA1ROS::joy_callback(const sensor_msgs::Joy::ConstPtr &joy_msg) {
     // left horiz
     joy_cmd_yaw_rate  = joy_msg->axes[0]*JOY_CMD_YAW_MAX;
     // cross button, left and right
-    joy_cmd_roll_rate = joy_msg->axes[6] * JOY_CMD_ROLL_MAX * (-1);
+    joy_cmd_roll_rate = joy_msg->axes[4] * JOY_CMD_ROLL_MAX * (-1);
     // cross button, up and down
-    joy_cmd_pitch_rate = joy_msg->axes[7] * JOY_CMD_PITCH_MAX;
+    joy_cmd_pitch_rate = joy_msg->axes[5] * JOY_CMD_PITCH_MAX;
 
 
     // lb
